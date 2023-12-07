@@ -1,7 +1,7 @@
 #!/bin/bash
 # @Autor  Ramirez Andres Daniela, Sandoval Castro Josmar Leonardo
 # @Fecha 06/12/2023
-# @Descripcion Este script contiene la configuración de los lugares
+# @Descripcion: Este script contiene la configuración de los lugares
 #              de almacenamiento para los archivos de la base
 
 #Creando la el directorio donde se almacenaran los archivos
