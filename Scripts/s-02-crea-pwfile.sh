@@ -6,7 +6,7 @@
 echo "CREANDO ARCHIVO DE PASSWORDS"
 
 echo "CONFIGURANDO ORACLE_SID"
-export ORACLE_SID=rascproy
+export ORACLE_SID=rasaproy
 
 if [ -f "${ORACLE_HOME}/dbs/orapw${ORACLE_SID}" ]; then
   read -p "El archivo existe, [enter] para sobrescribir, Ctrl-C para cancelar"
