@@ -20,6 +20,17 @@ export ORACLE_SID=rascproy
 
 echo "Validando existencia de directorio para data files"
 
+if [ -d "/unam-bda/proyecto/d00/${ORACLE_SID^^}" ]; then
+  echo "Directorio de data files ya existe"
+else 
+  echo "Creando directorio para data files"
+  cd  /unam-bda/proyecto
+  mkdir -p d00/${ORACLE_SID^^}
+  cd d00
+  chown oracle:oinstall ${ORACLE_SID^^}
+  chmod 750 ${ORACLE_SID^^}
+fi;
+
 if [ -d "/unam-bda/proyecto/d01/${ORACLE_SID^^}" ]; then
   echo "Directorio de data files ya existe"
 else 
