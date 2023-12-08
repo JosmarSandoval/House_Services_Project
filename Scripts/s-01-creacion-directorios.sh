@@ -11,12 +11,12 @@ if [-d "/unam-bda/proyecto"]; then
 else 
   cd /unam-bda
   mkdir proyecto
-  chown root:root proyecto
-  chmod 755 proyecto
+  sudo chown root:root proyecto
+  sudo chmod 755 proyecto
 fi;
 
 
-export ORACLE_SID=rascproy
+export ORACLE_SID=RASAPROY
 
 echo "Validando existencia de directorio para data files"
 
@@ -27,8 +27,8 @@ else
   cd  /unam-bda/proyecto
   mkdir -p d00/${ORACLE_SID^^}
   cd d00
-  chown oracle:oinstall ${ORACLE_SID^^}
-  chmod 750 ${ORACLE_SID^^}
+  sudo chown oracle:oinstall ${ORACLE_SID^^}
+  sudo chmod 750 ${ORACLE_SID^^}
 fi;
 
 if [ -d "/unam-bda/proyecto/d01/${ORACLE_SID^^}" ]; then
@@ -38,8 +38,8 @@ else
   cd  /unam-bda/proyecto
   mkdir -p d01/${ORACLE_SID^^}
   cd d01
-  chown oracle:oinstall ${ORACLE_SID^^}
-  chmod 750 ${ORACLE_SID^^}
+  sudo chown oracle:oinstall ${ORACLE_SID^^}
+  sudo chmod 750 ${ORACLE_SID^^}
 fi;
 
 if [ -d "/unam-bda/proyecto/d02/${ORACLE_SID^^}" ]; then
@@ -49,8 +49,8 @@ else
   cd  /unam-bda/proyecto
   mkdir -p d02/${ORACLE_SID^^}
   cd d02
-  chown oracle:oinstall ${ORACLE_SID^^}
-  chmod 750 ${ORACLE_SID^^}
+  sudo chown oracle:oinstall ${ORACLE_SID^^}
+  sudo chmod 750 ${ORACLE_SID^^}
 fi;
 
 
@@ -65,8 +65,8 @@ else
   chmod 755 d03
   cd /unam-bda/proyecto/d03
   mkdir -p app/oracle/oradata/${ORACLE_SID^^}
-  chown -R oracle:oinstall app
-  chmod -R 750 app
+  sudo chown -R oracle:oinstall app
+  sudo chmod -R 750 app
 fi;
 
 if [ -d "/unam-bda/proyecto/d04/app/oracle/oradata/${ORACLE_SID^^}" ]; then
@@ -78,8 +78,8 @@ else
   chmod 755 d04
   cd /unam-bda/proyecto/d04
   mkdir -p app/oracle/oradata/${ORACLE_SID^^}
-  chown -R oracle:oinstall app
-  chmod -R 750 app
+  sudo chown -R oracle:oinstall app
+  sudo chmod -R 750 app
 fi;
 
 
@@ -92,8 +92,8 @@ else
   chmod 755 d05
   cd /unam-bda/proyecto/d05
   mkdir -p app/oracle/oradata/${ORACLE_SID^^}
-  chown -R oracle:oinstall app
-  chmod -R 750 app
+  sudo chown -R oracle:oinstall app
+  sudo chmod -R 750 app
 fi;
 
 echo creando directorios para archivelogs 
@@ -103,12 +103,12 @@ if [ -d "/unam-bda/proyecto/d06" ]; then
 else
   cd /unam-bda/proyecto
   mkdir d06
-  chown root:root d06
-  chmod 755 d06
+  sudo chown root:root d06
+  sudo chmod 755 d06
   cd /unam-bda/proyecto/d06
   mkdir -p archivelogs/${ORACLE_SID^^}
-  chown -R oracle:oinstall archivelogs
-  chmod -R 750 archivelogs
+  sudo chown -R oracle:oinstall archivelogs
+  sudo chmod -R 750 archivelogs
 fi;
 
 if [ -d "/unam-bda/proyecto/d07" ]; then
@@ -116,12 +116,12 @@ if [ -d "/unam-bda/proyecto/d07" ]; then
 else
   cd /unam-bda/proyecto
   mkdir d07
-  chown root:root d07
-  chmod 755 d07
+  sudo chown root:root d07
+  sudo chmod 755 d07
   cd /unam-bda/proyecto/d07
   mkdir -p archivelogs/${ORACLE_SID^^}
-  chown -R oracle:oinstall archivelogs
-  chmod -R 750 archivelogs
+  sudo chown -R oracle:oinstall archivelogs
+  sudo chmod -R 750 archivelogs
 fi;
 
 echo  "creando directorio para la FRA"
@@ -131,12 +131,12 @@ if [-d "/unam-bda/proyecto/d08" ]; then
 else
   cd /unam-bda/proyecto
   mkdir d08
-  chown root:root d08
-  chmod 755 d08
+  sudo chown root:root d08
+  sudo chmod 755 d08
   cd /unam-bda/proyecto/d08
   mkdir -p fast_reco_area/${ORACLE_SID^^}
-  chown -R oracle:oinstall fast_reco_area
-  chmod -R 750 fast_reco_area
+  sudo chown -R oracle:oinstall fast_reco_area
+  sudo chmod -R 750 fast_reco_area
 fi;
 
 echo "comprobando directorios"

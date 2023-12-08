@@ -8,4 +8,4 @@ Prompt Creacion del SPFILE
 create spfile from pfile;
 
 Prompt Comprobacion del SPFILE
-!ls ${ORACLE_HOME}/dbs/spfilerascproy.ora
+!ls ${ORACLE_HOME}/dbs/spfileRASAPROY.ora

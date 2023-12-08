@@ -11,21 +11,21 @@ startup nomount
 prompt Ejecutar la grandiosa instrucción create database
 whenever sqlerror exit rollback
 
-create database rascproy
+create database rasaproy
   user sys identified by systemhouse
   user system identified by systemhouse
   logfile group 1 (
-    '/unam-bda/proyecto/d03/app/oracle/oradata/RASCPROY/redo01a.log',
-    '/unam-bda/proyecto/d04/app/oracle/oradata/RASCPROY/redo01b.log',
-    '/unam-bda/proyecto/d05/app/oracle/oradata/RASCPROY/redo01c.log') size 100m blocksize 512,
+    '/unam-bda/proyecto/d03/app/oracle/oradata/RASAPROY/redo01a.log',
+    '/unam-bda/proyecto/d04/app/oracle/oradata/RASAPROY/redo01b.log',
+    '/unam-bda/proyecto/d05/app/oracle/oradata/RASAPROY/redo01c.log') size 100m blocksize 512,
   group 2 (
-    '/unam-bda/proyecto/d03/app/oracle/oradata/RASCPROY/redo02a.log',
-    '/unam-bda/proyecto/d04/app/oracle/oradata/RASCPROY/redo02b.log',
-    '/unam-bda/proyecto/d05/app/oracle/oradata/RASCPROY/redo02c.log') size 100m blocksize 512,
+    '/unam-bda/proyecto/d03/app/oracle/oradata/RASAPROY/redo02a.log',
+    '/unam-bda/proyecto/d04/app/oracle/oradata/RASAPROY/redo02b.log',
+    '/unam-bda/proyecto/d05/app/oracle/oradata/RASAPROY/redo02c.log') size 100m blocksize 512,
   group 3 (
-    '/unam-bda/proyecto/d03/app/oracle/oradata/RASCPROY/redo03a.log',
-    '/unam-bda/proyecto/d04/app/oracle/oradata/RASCPROY/redo03b.log',
-    '/unam-bda/proyecto/d05/app/oracle/oradata/RASCPROY/redo03c.log') size 100m blocksize 512
+    '/unam-bda/proyecto/d03/app/oracle/oradata/RASAPROY/redo03a.log',
+    '/unam-bda/proyecto/d04/app/oracle/oradata/RASAPROY/redo03b.log',
+    '/unam-bda/proyecto/d05/app/oracle/oradata/RASAPROY/redo03c.log') size 50m blocksize 512
   maxloghistory 1
   maxlogfiles 16
   maxlogmembers 3
@@ -33,18 +33,18 @@ create database rascproy
   character set AL32UTF8
   national character set AL16UTF16
   extent management local
-  datafile '/unam-bda/proyecto/d00/RASCPROY/system01.dbf' 
+  datafile '/unam-bda/proyecto/d00/RASAPROY/system01.dbf' 
     size 700m reuse autoextend on next 10240k maxsize unlimited
-  sysaux datafile '/unam-bda/proyecto/d01/RASCPROY/sysaux01.dbf'
+  sysaux datafile '/unam-bda/proyecto/d01/RASAPROY/sysaux01.dbf'
     size 550m reuse autoextend on next 10240k maxsize unlimited
   default tablespace users
-    datafile '/unam-bda/proyecto/d00/RASCPROY/users01.dbf'
+    datafile '/unam-bda/proyecto/d00/RASAPROY/users01.dbf'
     size 100m reuse autoextend on maxsize unlimited
   default temporary tablespace tempts1
-    tempfile '/unam-bda/proyecto/d00/RASCPROY/temp01.dbf'
+    tempfile '/unam-bda/proyecto/d00/RASAPROY/temp01.dbf'
     size 20m reuse autoextend on next 640k maxsize unlimited
   undo tablespace undotbs1
-    datafile '/unam-bda/proyecto/d00/RASCPROY/undotbs01.dbf'
+    datafile '/unam-bda/proyecto/d00/RASAPROY/undotbs01.dbf'
     size 200m reuse autoextend on next 5120k maxsize unlimited;
 
 Prompt Al fin!!  base creada!
