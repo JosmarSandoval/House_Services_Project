@@ -5,6 +5,11 @@
 --              flashbacks
 --              4to grupo de redo
 
+Prompt configurando rutas de controlfiles
+alter system set control_files='/unam-bda/proyecto/d03/app/oracle/oradata/RASAPROY/control01.ctl',
+  '/unam-bda/proyecto/d04/app/oracle/oradata/RASAPROY/control02.ctl',
+  '/unam-bda/proyecto/d08/fast_reco_area/RASAPROY/RASAPROY/controlfile/ol_mf_lq7ftcxl_.ctl'
+  scope = spfile;
 
 Prompt habilitando periodo de retencion de datos undo
 alter system set undo_retention = 43200;
