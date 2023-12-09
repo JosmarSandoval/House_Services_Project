@@ -2,6 +2,7 @@
 -- @Fecha 08/12/2023
 -- @Descripcion: Creación de tablespaces para los módulos correspondientes
 
+whenever sqlerror exit rollback
 
 Prompt creando tablespaces del modulo Proveedor 
 
@@ -51,6 +52,6 @@ Prompt creando tablespaces que comparten ambos módulos
 
 create tablespace indices_ts
   datafile '/unam-bda/proyecto/d00/RASAPROY/indices01.dbf' size 20m reuse
-  autoextend on 
-  maxsize unlimited
-  extent management local autoallocate;
+    autoextend on 
+    maxsize unlimited
+    extent management local autoallocate;
