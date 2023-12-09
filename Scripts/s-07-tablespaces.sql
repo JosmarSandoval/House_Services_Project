@@ -4,6 +4,8 @@
 
 whenever sqlerror exit rollback
 
+connect sys/systemhouse as sysdba
+
 Prompt creando tablespaces del modulo Proveedor 
 
 create tablespace proveedor_ts
@@ -35,13 +37,13 @@ create tablespace cliente_servicio_ts
     maxsize unlimited
     extent management local autoallocate;
 
-create bigfile tablespace imagenes_cliente_servicio_lob_ts
+create bigfile tablespace images_client_service_lob_ts
   datafile '/unam-bda/proyecto/d01/RASAPROY/img_cliente_servicio_lob01.dbf' size 100m reuse
     autoextend on next 10m  
     maxsize unlimited
     extent management local autoallocate;
 
-create bigfile tablespace documentos_cliente_servicio_lob_ts
+create bigfile tablespace docs_client_service_lob_ts
   datafile '/unam-bda/proyecto/d01/RASAPROY/docs_cliente_servicio_lob01.dbf' size 100m reuse
     autoextend on next 10m  
     maxsize unlimited
@@ -55,3 +57,11 @@ create tablespace indices_ts
     autoextend on 
     maxsize unlimited
     extent management local autoallocate;
+
+"""
+drop tablespace proveedor_ts
+drop tablespace imagenes_proveedor_lob_ts
+drop tablespace documentos_proveedor_lob_ts
+drop tablespace cliente_servicio_ts
+
+"""
