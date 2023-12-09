@@ -38,13 +38,13 @@ create tablespace cliente_servicio_ts
     extent management local autoallocate;
 
 create bigfile tablespace images_client_service_lob_ts
-  datafile '/unam-bda/proyecto/d01/RASAPROY/img_cliente_servicio_lob01.dbf' size 100m reuse
+  datafile '/unam-bda/proyecto/d02/RASAPROY/img_cliente_servicio_lob01.dbf' size 100m reuse
     autoextend on next 10m  
     maxsize unlimited
     extent management local autoallocate;
 
 create bigfile tablespace docs_client_service_lob_ts
-  datafile '/unam-bda/proyecto/d01/RASAPROY/docs_cliente_servicio_lob01.dbf' size 100m reuse
+  datafile '/unam-bda/proyecto/d02/RASAPROY/docs_cliente_servicio_lob01.dbf' size 100m reuse
     autoextend on next 10m  
     maxsize unlimited
     extent management local autoallocate;
