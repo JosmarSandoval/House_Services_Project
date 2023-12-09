@@ -35,7 +35,7 @@ create database rasaproy
   extent management local
   datafile '/unam-bda/proyecto/d00/RASAPROY/system01.dbf' 
     size 700m reuse autoextend on next 10240k maxsize unlimited
-  sysaux datafile '/unam-bda/proyecto/d01/RASAPROY/sysaux01.dbf'
+  sysaux datafile '/unam-bda/proyecto/d00/RASAPROY/sysaux01.dbf'
     size 550m reuse autoextend on next 10240k maxsize unlimited
   default tablespace users
     datafile '/unam-bda/proyecto/d00/RASAPROY/users01.dbf'
