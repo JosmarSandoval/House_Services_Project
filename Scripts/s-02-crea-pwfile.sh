@@ -19,3 +19,6 @@ orapwd FORCE=Y \
 
 echo "COMPROBANDO LA CREACION DEL ARCHIVO"
 ls -l ${ORACLE_HOME}/dbs/orapw${ORACLE_SID}
+
+echo "cambiando dueño y grupo al archivo"
+sudo chown oracle:oinstall ${ORACLE_HOME}/dbs/orapw${ORACLE_SID}
