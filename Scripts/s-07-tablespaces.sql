@@ -58,10 +58,9 @@ create tablespace indices_ts
     maxsize unlimited
     extent management local autoallocate;
 
-"""
+/*
 drop tablespace proveedor_ts
 drop tablespace imagenes_proveedor_lob_ts
 drop tablespace documentos_proveedor_lob_ts
 drop tablespace cliente_servicio_ts
-
-"""
+*/
