@@ -16,12 +16,12 @@ INSERT INTO estatus_proveedor VALUES (5,'Inactivo','El proveedor se encuentra in
 
 Prompt insertando en tabla nivel_estudios
 INSERT INTO nivel_estudios VALUES(1,'Preescolar','Concluyo sus estudios hasta el preescolar');
-INSERT INTO nivel_estudios VALUES(1,'Primaria','Concluyo sus estudios hasta la primaria');
-INSERT INTO nivel_estudios VALUES(1,'Secundaria','Concluyo sus estudios hasta la secundaria');
-INSERT INTO nivel_estudios VALUES(1,'Bachillerato','Concluyo los estudios hasta el bachillerato');
-INSERT INTO nivel_estudios VALUES(1,'Licenciatura','Concluyo sus estudios hasta la licenciatura');
-INSERT INTO nivel_estudios VALUES(1,'Maestria','Concluyo sus estudios hasta la maestria');
-INSERT INTO nivel_estudios VALUES(1,'Doctorado','Concluyo sus estudios hasta el doctorado');
+INSERT INTO nivel_estudios VALUES(2,'Primaria','Concluyo sus estudios hasta la primaria');
+INSERT INTO nivel_estudios VALUES(3,'Secundaria','Concluyo sus estudios hasta la secundaria');
+INSERT INTO nivel_estudios VALUES(4,'Bachillerato','Concluyo los estudios hasta el bachillerato');
+INSERT INTO nivel_estudios VALUES(5,'Licenciatura','Concluyo sus estudios hasta la licenciatura');
+INSERT INTO nivel_estudios VALUES(6,'Maestria','Concluyo sus estudios hasta la maestria');
+INSERT INTO nivel_estudios VALUES(7,'Doctorado','Concluyo sus estudios hasta el doctorado');
 
 Prompt insertando en tabla tipo_servicio
 INSERT INTO tipo_servicio VALUES(1,'Albañil','Realiza servicios de albañileria');
