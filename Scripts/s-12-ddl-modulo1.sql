@@ -41,9 +41,9 @@ CREATE TABLE proveedor (
     tel_casa VARCHAR2(10) NOT NULL,
     tel_movil VARCHAR2(10) NOT NULL,
     fecha_status DATE NOT NULL,
-    foto BLOB,
-    identificacion_vigente BLOB,
-    comprobante_domicilio BLOB,
+    foto BLOB NOT NULL DEFAULT(empty_blob()),
+    identificacion_vigente BLOB NOT NULL DEFAULT(empty_blob()),
+    comprobante_domicilio BLOB NOT NULL DEFAULT(empty_blob()),
     entidad_nacimiento_id NUMBER(10,0) NOT NULL,
     estatus_proveedor_id NUMBER(2,0) NOT NULL,
     nivel_studios_id NUMBER(3,0) NOT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE deposito(
     deposito_id NUMBER(10,0) NOT NULL,
     importe NUMBER(10,0) NOT NULL,
     fecha_pago DATE NOT NULL,
-    comprobante BLOB,
+    comprobante BLOB NOT NULL DEFAULT(empty_blob()),
     cuenta_bancaria_id NUMBER(10,0),
     CONSTRAINT deposito_pk PRIMARY KEY (deposito_id),
     CONSTRAINT deposito_cuenta_bancaria_fk FOREIGN KEY (cuenta_bancaria_id) 
@@ -108,7 +108,7 @@ CREATE TABLE proveedor_servicio(
 
 CREATE TABLE comprobante_experiencia(
     comprobante_experiencia_id NUMBER(10,0) NOT NULL,
-    comprobante_pdf BLOB,
+    comprobante_pdf BLOB NOT NULL DEFAULT(empty_blob()),
     proveedor_servicio_id NUMBER(10,0) NOT NULL,
     CONSTRAINT comprobante_experiencia_pk PRIMARY KEY(comprobante_experiencia_id),
     CONSTRAINT comprobante_exp_proveedor_servicio_fk FOREIGN KEY (proveedor_servicio_id) 
