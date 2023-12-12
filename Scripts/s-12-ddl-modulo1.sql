@@ -159,7 +159,7 @@ CREATE INDEX deposito_cuenta_bancaria_id_ix ON deposito (cuenta_bancaria_id) TAB
 -- Indice en proveedor_id para consultas que involucren esta columna
 CREATE INDEX cuenta_bancaria_proveedor_id_ix ON cuenta_bancaria (proveedor_id) TABLESPACE indices_ts;
 -- INdice en clable para consultas que involucren la clabe bancaria ya que es unica 
-CREATE UNIQUE INDEX cuenta_bancaria_clabe_ix ON cuenta_bancaria (clabe) TABLESPACE indices_ts;
+CREATE UNIQUE INDEX cuenta_bancaria_clabe_iuk ON cuenta_bancaria (clabe) TABLESPACE indices_ts;
 
 
 --*****************************--
