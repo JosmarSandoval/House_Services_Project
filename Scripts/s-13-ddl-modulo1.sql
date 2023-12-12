@@ -3,7 +3,11 @@
 -- @Descripcion: Creacion de tablas e indices asignados a sus respectivos tablespace
 --del modulo proveedor 
 
+whenever sqlerror exit rollback;
+Prompt conectando como proveedor_usr
+connect proveedor_usr/proveedor123
 
+Prompt Creando tabla estatus_proveedor
 CREATE TABLE estatus_proveedor(
     estatus_proveedor_id NUMBER(2,0) NOT NULL,
     estatus VARCHAR2(40) NOT NULL,
@@ -11,6 +15,7 @@ CREATE TABLE estatus_proveedor(
     CONSTRAINT estatus_proveedor_pk PRIMARY KEY (estatus_proveedor_id)
 )TABLESPACE proveedor_ts;
 
+Prompt Creando tabla nivel_estudios
 CREATE TABLE nivel_estudios(
     nivel_estudios_id NUMBER(3,0) NOT NULL,
     nombre VARCHAR2(40) NOT NULL,
@@ -18,6 +23,7 @@ CREATE TABLE nivel_estudios(
     CONSTRAINT nivel_estudios_pk PRIMARY KEY(nivel_estudios_id)
 )TABLESPACE proveedor_ts;
 
+Prompt Creando tabla tipo_servicio
 CREATE TABLE tipo_servicio(
     tipo_servicio_id NUMBER(10,0) NOT NULL,
     nombre VARCHAR2(40) NOT NULL,
@@ -25,12 +31,14 @@ CREATE TABLE tipo_servicio(
     CONSTRAINT tipo_servicio_pk PRIMARY KEY(tipo_servicio_id)
 )TABLESPACE proveedor_ts;
 
+Prompt Creando tabla entidad_nacimiento
 CREATE TABLE entidad_nacimiento(
     entidad_nacimiento_id NUMBER(10,0) NOT NULL,
     nombre_entidad VARCHAR2(40) NOT NULL,
     CONSTRAINT entidad_nacimiento_pk PRIMARY KEY(entidad_nacimiento_id)
 )TABLESPACE proveedor_ts;
 
+Prompt Creando tabla proveedor
 CREATE TABLE proveedor (
     proveedor_id NUMBER(10,0) NOT NULL,
     nombre VARCHAR2(40) NOT NULL,
@@ -59,6 +67,7 @@ LOB (foto) STORE AS SECUREFILE (TABLESPACE imagenes_proveedor_lob_ts)
 LOB (identificacion_vigente) AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts)
 LOB (comprobante_domicilio) AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts);
 
+Prompt Creando tabla proveedor_email
 CREATE TABLE proveedor_email (
     secuencia_proveedor_email NUMBER(1,0) NOT NULL,
     proveedor_id NUMBER(10,0) NOT NULL, 
@@ -71,6 +80,7 @@ CREATE TABLE proveedor_email (
     CONSTRAINT proveedor_email_email_uk UNIQUE (email)
 )TABLESPACE proveedor_ts;
 
+Prompt Creando tabla cuenta_bancaria
 CREATE TABLE cuenta_bancaria(
     cuenta_bancaria_id NUMBER(10,0) NOT NULL,
     clabe VARCHAR2(18) NOT NULL,
@@ -82,6 +92,7 @@ CREATE TABLE cuenta_bancaria(
     CONSTRAINT cuenta_bancaria_clabe_uk UNIQUE (clabe)
 )TABLESPACE proveedor_ts;
 
+Prompt Creando tabla deposito
 CREATE TABLE deposito(
     deposito_id NUMBER(10,0) NOT NULL,
     importe NUMBER(10,0) NOT NULL,
@@ -94,6 +105,7 @@ CREATE TABLE deposito(
 )TABLESPACE proveedor_ts
 LOB (comprobante) AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts);
 
+Prompt Creando tabla proveedor_servicio
 CREATE TABLE proveedor_servicio(
     proveedor_servicio_id NUMBER(10,0) NOT NULL,
     proveedor_id NUMBER(10,0) NOT NULL,
@@ -106,6 +118,7 @@ CREATE TABLE proveedor_servicio(
         REFERENCES tipo_servicio(tipo_servicio_id)
 )TABLESPACE proveedor_ts;
 
+Prompt Creando tabla comprobante_experiencia
 CREATE TABLE comprobante_experiencia(
     comprobante_experiencia_id NUMBER(10,0) NOT NULL,
     comprobante_pdf BLOB NOT NULL DEFAULT(empty_blob()),
@@ -116,6 +129,7 @@ CREATE TABLE comprobante_experiencia(
 )TABLESPACE proveedor_ts
 LOB (comprobante_pdf) AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts);
 
+Prompt Creando tabla historico_estatus_proveedor
 CREATE TABLE historico_estatus_proveedor(
     historico_estatus_proveedor_id NUMBER(10,0) NOT NULL,
     fecha DATE NOT NULL,
@@ -128,6 +142,7 @@ CREATE TABLE historico_estatus_proveedor(
         REFERENCES estatus_proveedor(estatus_provedor_id)
 )TABLESPACE proveedor_ts;
 
+Prompt creando indices
 --indices 
 --***************--
 --TABLA PROVEEDOR--
