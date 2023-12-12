@@ -49,23 +49,23 @@ CREATE TABLE proveedor (
     tel_casa VARCHAR2(10) NOT NULL,
     tel_movil VARCHAR2(10) NOT NULL,
     fecha_status DATE NOT NULL,
-    foto BLOB NOT NULL DEFAULT(empty_blob()),
-    identificacion_vigente BLOB NOT NULL DEFAULT(empty_blob()),
-    comprobante_domicilio BLOB NOT NULL DEFAULT(empty_blob()),
+    foto BLOB DEFAULT EMPTY_BLOB() NOT NULL,
+    identificacion_vigente BLOB DEFAULT EMPTY_BLOB() NOT NULL,
+    comprobante_domicilio BLOB DEFAULT EMPTY_BLOB() NOT NULL,
     entidad_nacimiento_id NUMBER(10,0) NOT NULL,
     estatus_proveedor_id NUMBER(2,0) NOT NULL,
-    nivel_studios_id NUMBER(3,0) NOT NULL,
+    nivel_estudios_id NUMBER(3,0) NOT NULL,
     CONSTRAINT proveedor_pk PRIMARY KEY(proveedor_id),
     CONSTRAINT proveedor_entidad_nacimiento_fk FOREIGN KEY (entidad_nacimiento_id) 
         REFERENCES entidad_nacimiento(entidad_nacimiento_id),
     CONSTRAINT proveedor_estatus_proveedor_fk FOREIGN KEY (estatus_proveedor_id) 
         REFERENCES estatus_proveedor(estatus_proveedor_id),
-    CONSTRAINT proveedor_nivel_studio_fk FOREIGN KEY (nivel_studios_id) 
-        REFERENCES nivel_studios(nivel_studios_id)
+    CONSTRAINT proveedor_nivel_estudio_fk FOREIGN KEY (nivel_estudios_id) 
+        REFERENCES nivel_estudios(nivel_estudios_id)
 )TABLESPACE proveedor_ts
 LOB (foto) STORE AS SECUREFILE (TABLESPACE imagenes_proveedor_lob_ts)
-LOB (identificacion_vigente) AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts)
-LOB (comprobante_domicilio) AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts);
+LOB (identificacion_vigente) STORE AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts)
+LOB (comprobante_domicilio) STORE AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts);
 
 Prompt Creando tabla proveedor_email
 CREATE TABLE proveedor_email (
@@ -97,13 +97,13 @@ CREATE TABLE deposito(
     deposito_id NUMBER(10,0) NOT NULL,
     importe NUMBER(10,0) NOT NULL,
     fecha_pago DATE NOT NULL,
-    comprobante BLOB NOT NULL DEFAULT(empty_blob()),
+    comprobante BLOB DEFAULT EMPTY_BLOB() NOT NULL,
     cuenta_bancaria_id NUMBER(10,0),
     CONSTRAINT deposito_pk PRIMARY KEY (deposito_id),
     CONSTRAINT deposito_cuenta_bancaria_fk FOREIGN KEY (cuenta_bancaria_id) 
         REFERENCES cuenta_bancaria(cuenta_bancaria_id)
 )TABLESPACE proveedor_ts
-LOB (comprobante) AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts);
+LOB (comprobante) STORE AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts);
 
 Prompt Creando tabla proveedor_servicio
 CREATE TABLE proveedor_servicio(
@@ -121,13 +121,13 @@ CREATE TABLE proveedor_servicio(
 Prompt Creando tabla comprobante_experiencia
 CREATE TABLE comprobante_experiencia(
     comprobante_experiencia_id NUMBER(10,0) NOT NULL,
-    comprobante_pdf BLOB NOT NULL DEFAULT(empty_blob()),
+    comprobante_pdf BLOB DEFAULT EMPTY_BLOB() NOT NULL,
     proveedor_servicio_id NUMBER(10,0) NOT NULL,
     CONSTRAINT comprobante_experiencia_pk PRIMARY KEY(comprobante_experiencia_id),
     CONSTRAINT comprobante_exp_proveedor_servicio_fk FOREIGN KEY (proveedor_servicio_id) 
         REFERENCES proveedor_servicio(proveedor_servicio_id)
 )TABLESPACE proveedor_ts
-LOB (comprobante_pdf) AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts);
+LOB (comprobante_pdf) STORE AS SECUREFILE (TABLESPACE documentos_proveedor_lob_ts);
 
 Prompt Creando tabla historico_estatus_proveedor
 CREATE TABLE historico_estatus_proveedor(
@@ -139,7 +139,7 @@ CREATE TABLE historico_estatus_proveedor(
     CONSTRAINT hist_estat_prov_prov_id_fk FOREIGN KEY (proveedor_id) 
         REFERENCES proveedor(proveedor_id),
     CONSTRAINT hist_estat_prov_estat_prov_id_fk FOREIGN KEY (estatus_proveedor_id) 
-        REFERENCES estatus_proveedor(estatus_provedor_id)
+        REFERENCES estatus_proveedor(estatus_proveedor_id)
 )TABLESPACE proveedor_ts;
 
 Prompt creando indices
@@ -154,7 +154,7 @@ CREATE INDEX proveedor_entidad_nacimiento_id_ix ON proveedor (entidad_nacimiento
 CREATE INDEX proveedor_estatus_proveedor_id_ix ON proveedor (estatus_proveedor_id) TABLESPACE indices_ts;
 
 -- Indice en nivel_studios_id para consultas relacionadas con el nivel de estudio fk 
-CREATE INDEX proveedor_nivel_studios_id_ix ON proveedor (nivel_studios_id) TABLESPACE indices_ts;
+CREATE INDEX proveedor_nivel_estudios_id_ix ON proveedor (nivel_estudios_id) TABLESPACE indices_ts;
 
 --*********************--
 --TABLA PROVEEDOR EMAIL--
@@ -173,8 +173,9 @@ CREATE INDEX deposito_cuenta_bancaria_id_ix ON deposito (cuenta_bancaria_id) TAB
 --*********************--
 -- Indice en proveedor_id para consultas que involucren esta columna
 CREATE INDEX cuenta_bancaria_proveedor_id_ix ON cuenta_bancaria (proveedor_id) TABLESPACE indices_ts;
+
 -- INdice en clable para consultas que involucren la clabe bancaria ya que es unica 
-CREATE UNIQUE INDEX cuenta_bancaria_clabe_iuk ON cuenta_bancaria (clabe) TABLESPACE indices_ts;
+--CREATE UNIQUE INDEX cuenta_bancaria_clabe_iuk ON cuenta_bancaria (clabe) TABLESPACE indices_ts;
 
 
 --*****************************--
