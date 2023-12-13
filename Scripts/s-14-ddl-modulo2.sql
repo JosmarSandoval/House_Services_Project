@@ -10,12 +10,13 @@ CREATE TABLE cliente(
     fecha_registro    DATE             NOT NULL,
     nombre_ususario   VARCHAR2(40)     NOT NULL,
     contrasenia       VARCHAR2(40)     NOT NULL,
-    email             VARCHAR2(40)     UNIQUE NOT NULL,
+    email             VARCHAR2(40)     NOT NULL,
     telefono          VARCHAR2(10)     NOT NULL,
     direccion         VARCHAR2(200)    NOT NULL,
     tipo_cliente      CHAR(1)          NOT NULL,
     CONSTRAINT cliente_pk PRIMARY KEY(cliente_id),
-    CONSTRAINT cliente_tipo_cliente_chk CHECK (tipo_cliente IN ('E','P'))
+    CONSTRAINT cliente_tipo_cliente_chk CHECK (tipo_cliente IN ('E','P')),
+    CONSTRAINT cliente_email_uk UNIQUE (email)
 )TABLESPACE cliente_servicio_ts;
 
 
@@ -36,28 +37,30 @@ CREATE TABLE particular(
     cliente_id          NUMBER(10, 0)    NOT NULL,
     nombre              VARCHAR2(40)     NOT NULL,
     foto                BLOB             DEFAULT EMPTY_BLOB() NOT NULL,
-    curp                VARCHAR2(18)     UNIQUE NOT NULL,
+    curp                VARCHAR2(18)     NOT NULL,
     fecha_nacimiento    DATE             NOT NULL,
     CONSTRAINT particular_pk PRIMARY KEY (cliente_id),
     CONSTRAINT particular_cliente_id_fk FOREIGN KEY (cliente_id)
-      REFERENCES cliente(cliente_id)
+      REFERENCES cliente(cliente_id),
+    CONSTRAINT particular_curp_uk UNIQUE (curp)
 )TABLESPACE cliente_servicio_ts
 LOB (logotipo) STORE AS SECUREFILE (TABLESPACE images_client_service_lob_ts);
 
 CREATE TABLE tarjeta_cliente(
     secuencia_tarjeta_cliente    NUMBER(1, 0)     NOT NULL,
     cliente_id                   NUMBER(10, 0)    NOT NULL,
-    num_tarjeta                  VARCHAR2(16)     UNIQUE NOT NULL,
+    num_tarjeta                  VARCHAR2(16)     NOT NULL,
     ccv                          VARCHAR2(3)      NOT NULL,
     fecha_expiracion             DATE             NOT NULL,
-    clabe                        VARCHAR2(18)     UNIQUE NOT NULL,
+    clabe                        VARCHAR2(18)     NOT NULL,
     CONSTRAINT tarjeta_cliente_pk PRIMARY KEY (secuencia_tarjeta_cliente,cliente_id),
     CONSTRAINT tarjeta_client_client_id_fk FOREIGN KEY (cliente_id)
       REFERENCES cliente(cliente_id),
-    CONSTRAINT secuencia_tarjeta_cliente_chk CHECK (secuencia_tarjeta_cliente BETWEEN 1 AND 3)
+    CONSTRAINT secuencia_tarjeta_cliente_chk CHECK (secuencia_tarjeta_cliente BETWEEN 1 AND 3),
+    CONSTRAINT tarj_cli_num_tarjeta_uk UNIQUE (num_tarjeta),
+    CONSTRAINT tarj_cli_clabe_uk UNIQUE (clabe)
     
 )TABLESPACE cliente_servicio_ts;
-
 
 CREATE TABLE estatus_servicio(
     estatus_servicio_id    NUMBER(1, 0)     NOT NULL,
@@ -65,7 +68,6 @@ CREATE TABLE estatus_servicio(
     descripcion            VARCHAR2(200)    NOT NULL,
     CONSTRAINT estatus_servicio_pk PRIMARY KEY (estatus_servicio_id)
 )TABLESPACE cliente_servicio_ts;
-
 
 CREATE TABLE servicio(
     servicio_id                     NUMBER(10, 0)     NOT NULL,
@@ -143,42 +145,41 @@ CREATE TABLE pago_servicio(
       REFERENCES servicio(servicio_id)
 )TABLESPACE cliente_servicio_ts;
 
---Cambiar nombre y apuntar a el ts de indices
 --Indices
 
 -- Índice para la clave foránea en la tabla empresa
 -- Índice para la clave foránea en la tabla cliente
-CREATE INDEX idx_cliente_cliente_id_fk ON cliente(cliente_id);
+CREATE INDEX cliente_cliente_id_ix ON cliente(cliente_id)TABLESPACE indices_ts ;
 
 -- Índice para la clave foránea en la tabla empresa
-CREATE INDEX idx_empresa_cliente_id_fk ON empresa(cliente_id);
+CREATE INDEX empresa_cliente_id_ix ON empresa(cliente_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla particular
-CREATE INDEX idx_particular_cliente_id_fk ON particular(cliente_id);
+CREATE INDEX particular_cliente_id_ix ON particular(cliente_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla tarjeta_cliente
-CREATE INDEX idx_tarjeta_cliente_cliente_id_fk ON tarjeta_cliente(cliente_id);
+CREATE INDEX tarjeta_cliente_cliente_id_ix ON tarjeta_cliente(cliente_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla servicio
-CREATE INDEX idx_servicio_cliente_id_fk ON servicio(cliente_id);
+CREATE INDEX servicio_cliente_id_ix ON servicio(cliente_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla servicio
-CREATE INDEX idx_servicio_estatus_servicio_id_fk ON servicio(estatus_servicio_id);
+CREATE INDEX servicio_estatus_servicio_id_ix ON servicio(estatus_servicio_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla historico_estatus_servicio
-CREATE INDEX idx_hist_estatus_serv_servicio_id_fk ON historico_estatus_servicio(servicio_id);
+CREATE INDEX hist_estatus_serv_servicio_id_ix ON historico_estatus_servicio(servicio_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla califica_servicio
-CREATE INDEX idx_califica_servicio_servicio_id_fk ON califica_servicio(servicio_id);
+CREATE INDEX califica_servicio_servicio_id_ix ON califica_servicio(servicio_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla evidencia
-CREATE INDEX idx_evidencia_servicio_id_fk ON evidencia(servicio_id);
+CREATE INDEX evidencia_servicio_id_ix ON evidencia(servicio_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla imagen_evidencia
-CREATE INDEX idx_imagen_evidencia_evidencia_id_fk ON imagen_evidencia(evidencia_id);
+CREATE INDEX imagen_evidencia_evidencia_id_ix ON imagen_evidencia(evidencia_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla pago_servicio
-CREATE INDEX idx_pago_servicio_servicio_id_fk ON pago_servicio(servicio_id);
+CREATE INDEX pago_servicio_servicio_id_ix ON pago_servicio(servicio_id)TABLESPACE indices_ts;
 
 
 
