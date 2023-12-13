@@ -1,13 +1,16 @@
 -- @Autor Ramirez Andres Daniela, Sandoval Castro Josmar Leonardo
 -- @Fecha 13/12/2023
 -- @Descripcion: Instrucciones DDL para crear el segundo módulo
+whenever sqlerror exit rollback;
+Prompt conectando como cliente_usr
+connect cliente_usr/cliente123
 
 CREATE TABLE cliente(
     cliente_id        NUMBER(10, 0)    NOT NULL,
     fecha_registro    DATE             NOT NULL,
     nombre_ususario   VARCHAR2(40)     NOT NULL,
     contrasenia       VARCHAR2(40)     NOT NULL,
-    email             VARCHAR2(40)     NOT NULL,
+    email             VARCHAR2(40)     UNIQUE NOT NULL,
     telefono          VARCHAR2(10)     NOT NULL,
     direccion         VARCHAR2(200)    NOT NULL,
     tipo_cliente      CHAR(1)          NOT NULL,
@@ -33,7 +36,7 @@ CREATE TABLE particular(
     cliente_id          NUMBER(10, 0)    NOT NULL,
     nombre              VARCHAR2(40)     NOT NULL,
     foto                BLOB             DEFAULT EMPTY_BLOB() NOT NULL,
-    curp                VARCHAR2(18)     NOT NULL,
+    curp                VARCHAR2(18)     UNIQUE NOT NULL,
     fecha_nacimiento    DATE             NOT NULL,
     CONSTRAINT particular_pk PRIMARY KEY (cliente_id),
     CONSTRAINT particular_cliente_id_fk FOREIGN KEY (cliente_id)
@@ -44,13 +47,15 @@ LOB (logotipo) STORE AS SECUREFILE (TABLESPACE images_client_service_lob_ts);
 CREATE TABLE tarjeta_cliente(
     secuencia_tarjeta_cliente    NUMBER(1, 0)     NOT NULL,
     cliente_id                   NUMBER(10, 0)    NOT NULL,
-    num_tarjeta                  VARCHAR2(16)     NOT NULL,
+    num_tarjeta                  VARCHAR2(16)     UNIQUE NOT NULL,
     ccv                          VARCHAR2(3)      NOT NULL,
     fecha_expiracion             DATE             NOT NULL,
-    clabe                        VARCHAR2(18)     NOT NULL,
+    clabe                        VARCHAR2(18)     UNIQUE NOT NULL,
     CONSTRAINT tarjeta_cliente_pk PRIMARY KEY (secuencia_tarjeta_cliente,cliente_id),
     CONSTRAINT tarjeta_client_client_id_fk FOREIGN KEY (cliente_id)
-      REFERENCES cliente(cliente_id)
+      REFERENCES cliente(cliente_id),
+    CONSTRAINT secuencia_tarjeta_cliente_chk CHECK (secuencia_tarjeta_cliente BETWEEN 1 AND 3)
+    
 )TABLESPACE cliente_servicio_ts;
 
 
@@ -140,6 +145,40 @@ CREATE TABLE pago_servicio(
 
 
 --Indices
+
+-- Índice para la clave foránea en la tabla empresa
+-- Índice para la clave foránea en la tabla cliente
+CREATE INDEX idx_cliente_cliente_id_fk ON cliente(cliente_id);
+
+-- Índice para la clave foránea en la tabla empresa
+CREATE INDEX idx_empresa_cliente_id_fk ON empresa(cliente_id);
+
+-- Índice para la clave foránea en la tabla particular
+CREATE INDEX idx_particular_cliente_id_fk ON particular(cliente_id);
+
+-- Índice para la clave foránea en la tabla tarjeta_cliente
+CREATE INDEX idx_tarjeta_cliente_cliente_id_fk ON tarjeta_cliente(cliente_id);
+
+-- Índice para la clave foránea en la tabla servicio
+CREATE INDEX idx_servicio_cliente_id_fk ON servicio(cliente_id);
+
+-- Índice para la clave foránea en la tabla servicio
+CREATE INDEX idx_servicio_estatus_servicio_id_fk ON servicio(estatus_servicio_id);
+
+-- Índice para la clave foránea en la tabla historico_estatus_servicio
+CREATE INDEX idx_hist_estatus_serv_servicio_id_fk ON historico_estatus_servicio(servicio_id);
+
+-- Índice para la clave foránea en la tabla califica_servicio
+CREATE INDEX idx_califica_servicio_servicio_id_fk ON califica_servicio(servicio_id);
+
+-- Índice para la clave foránea en la tabla evidencia
+CREATE INDEX idx_evidencia_servicio_id_fk ON evidencia(servicio_id);
+
+-- Índice para la clave foránea en la tabla imagen_evidencia
+CREATE INDEX idx_imagen_evidencia_evidencia_id_fk ON imagen_evidencia(evidencia_id);
+
+-- Índice para la clave foránea en la tabla pago_servicio
+CREATE INDEX idx_pago_servicio_servicio_id_fk ON pago_servicio(servicio_id);
 
 
 
