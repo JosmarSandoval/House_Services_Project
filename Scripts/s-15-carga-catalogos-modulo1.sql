@@ -31,6 +31,7 @@ INSERT INTO tipo_servicio VALUES(4,'Fontanero','Realiza instalacion y mantenimie
 INSERT INTO tipo_servicio VALUES(5,'Pintor','Realiza servicio de pintura en hogares');
 INSERT INTO tipo_servicio VALUES(6,'Cerrajero','Realiza servicio de instalacion y mantenimiento de cerraduras en viviendas');
 INSERT INTO tipo_servicio VALUES(7,'Electricista','Realiza servicio de instalacion y mantenimiento en redes electricas');
+INSERT INTO tipo_servicio VALUES(8,'Conserje','Realiza servicio de limpieza general');
 INSERT INTO tipo_servicio VALUES(9,'Especialista de aire a condicionado','Realiza servicio de instalacion y mantenimiento de aires acondicionados');
 INSERT INTO tipo_servicio VALUES(10,'Soldador','Realiza servicio de soldadura');
 INSERT INTO tipo_servicio VALUES(11,'Herrero','Realiza objetos con metales');
