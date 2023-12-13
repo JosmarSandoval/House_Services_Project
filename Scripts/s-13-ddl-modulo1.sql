@@ -153,9 +153,6 @@ CREATE INDEX proveedor_entidad_nacimiento_id_ix ON proveedor (entidad_nacimiento
 -- Indice en estatus_proveedor_id para filtrar proveedores por estado fk
 CREATE INDEX proveedor_estatus_proveedor_id_ix ON proveedor (estatus_proveedor_id) TABLESPACE indices_ts;
 
--- Indice en nivel_studios_id para consultas relacionadas con el nivel de estudio fk 
-CREATE INDEX proveedor_nivel_estudios_id, fecha_nacimiento_ix ON proveedor (nivel_estudios_id, fecha_nacimiento) TABLESPACE indices_ts;
-
 --*********************--
 --TABLA PROVEEDOR EMAIL--
 --*********************--
