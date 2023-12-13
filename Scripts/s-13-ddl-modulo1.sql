@@ -17,7 +17,7 @@ CREATE TABLE estatus_proveedor(
 
 Prompt Creando tabla nivel_estudios
 CREATE TABLE nivel_estudios(
-    nivel_estudios_id, fecha_nacimiento NUMBER(3,0) NOT NULL,
+    nivel_estudios_id NUMBER(3,0) NOT NULL,
     nombre VARCHAR2(40) NOT NULL,
     descripcion VARCHAR2(200) NOT NULL,
     CONSTRAINT nivel_estudios_pk PRIMARY KEY(nivel_estudios_id, fecha_nacimiento)
