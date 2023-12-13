@@ -17,10 +17,10 @@ CREATE TABLE estatus_proveedor(
 
 Prompt Creando tabla nivel_estudios
 CREATE TABLE nivel_estudios(
-    nivel_estudios_id NUMBER(3,0) NOT NULL,
+    nivel_estudios_id, fecha_nacimiento NUMBER(3,0) NOT NULL,
     nombre VARCHAR2(40) NOT NULL,
     descripcion VARCHAR2(200) NOT NULL,
-    CONSTRAINT nivel_estudios_pk PRIMARY KEY(nivel_estudios_id)
+    CONSTRAINT nivel_estudios_pk PRIMARY KEY(nivel_estudios_id, fecha_nacimiento)
 )TABLESPACE proveedor_ts;
 
 Prompt Creando tabla tipo_servicio
@@ -154,7 +154,7 @@ CREATE INDEX proveedor_entidad_nacimiento_id_ix ON proveedor (entidad_nacimiento
 CREATE INDEX proveedor_estatus_proveedor_id_ix ON proveedor (estatus_proveedor_id) TABLESPACE indices_ts;
 
 -- Indice en nivel_studios_id para consultas relacionadas con el nivel de estudio fk 
-CREATE INDEX proveedor_nivel_estudios_id_ix ON proveedor (nivel_estudios_id) TABLESPACE indices_ts;
+CREATE INDEX proveedor_nivel_estudios_id, fecha_nacimiento_ix ON proveedor (nivel_estudios_id, fecha_nacimiento) TABLESPACE indices_ts;
 
 --*********************--
 --TABLA PROVEEDOR EMAIL--
