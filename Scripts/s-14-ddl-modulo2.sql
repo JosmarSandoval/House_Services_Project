@@ -5,6 +5,7 @@ whenever sqlerror exit rollback;
 Prompt conectando como cliente_usr
 connect cliente_usr/cliente123
 
+Prompt creando tabla cliente
 CREATE TABLE cliente(
     cliente_id        NUMBER(10, 0)    NOT NULL,
     fecha_registro    DATE             NOT NULL,
@@ -19,13 +20,13 @@ CREATE TABLE cliente(
     CONSTRAINT cliente_email_uk UNIQUE (email)
 )TABLESPACE cliente_servicio_ts;
 
-
+Prompt creando tabla empresa
 CREATE TABLE empresa(
     cliente_id       NUMBER(10, 0)    NOT NULL,
     nombre           VARCHAR2(40)     NOT NULL,
     logotipo         BLOB             DEFAULT EMPTY_BLOB()   NOT NULL,
     descripcion      VARCHAR2(200)    NOT NULL,
-    num_empleados    NUMBER(40, 0)    NOT NULL,
+    num_empleados    NUMBER(10, 0)    NOT NULL,
     CONSTRAINT empresa_pk PRIMARY KEY (cliente_id),
     CONSTRAINT empresa_cliente_id_fk FOREIGN KEY (cliente_id)
       REFERENCES cliente(cliente_id)
@@ -33,6 +34,7 @@ CREATE TABLE empresa(
 LOB (logotipo) STORE AS SECUREFILE (TABLESPACE images_client_service_lob_ts);
 
 
+Prompt creando tabla particular
 CREATE TABLE particular(
     cliente_id          NUMBER(10, 0)    NOT NULL,
     nombre              VARCHAR2(40)     NOT NULL,
@@ -44,8 +46,9 @@ CREATE TABLE particular(
       REFERENCES cliente(cliente_id),
     CONSTRAINT particular_curp_uk UNIQUE (curp)
 )TABLESPACE cliente_servicio_ts
-LOB (logotipo) STORE AS SECUREFILE (TABLESPACE images_client_service_lob_ts);
+LOB (foto) STORE AS SECUREFILE (TABLESPACE images_client_service_lob_ts);
 
+Prompt creando tabla tarjeta_cliente
 CREATE TABLE tarjeta_cliente(
     secuencia_tarjeta_cliente    NUMBER(1, 0)     NOT NULL,
     cliente_id                   NUMBER(10, 0)    NOT NULL,
@@ -58,10 +61,10 @@ CREATE TABLE tarjeta_cliente(
       REFERENCES cliente(cliente_id),
     CONSTRAINT secuencia_tarjeta_cliente_chk CHECK (secuencia_tarjeta_cliente BETWEEN 1 AND 3),
     CONSTRAINT tarj_cli_num_tarjeta_uk UNIQUE (num_tarjeta),
-    CONSTRAINT tarj_cli_clabe_uk UNIQUE (clabe)
-    
+    CONSTRAINT tarj_cli_clabe_uk UNIQUE (clabe)   
 )TABLESPACE cliente_servicio_ts;
 
+Prompt creando tabla estatus_servicio
 CREATE TABLE estatus_servicio(
     estatus_servicio_id    NUMBER(1, 0)     NOT NULL,
     estatus                VARCHAR2(40)     NOT NULL,
@@ -69,6 +72,7 @@ CREATE TABLE estatus_servicio(
     CONSTRAINT estatus_servicio_pk PRIMARY KEY (estatus_servicio_id)
 )TABLESPACE cliente_servicio_ts;
 
+Prompt creando tabla servicio
 CREATE TABLE servicio(
     servicio_id                     NUMBER(10, 0)     NOT NULL,
     fecha_servicio                  DATE              NOT NULL,
@@ -89,6 +93,7 @@ CREATE TABLE servicio(
 )TABLESPACE cliente_servicio_ts
 LOB (documento_detallado) STORE AS SECUREFILE (TABLESPACE docs_client_service_lob_ts);
 
+Prompt creando tabla historico_estatus_servicio
 CREATE TABLE historico_estatus_servicio(
     historico_estatus_servicio_id    NUMBER(10, 0)    NOT NULL,
     fecha                            DATE             NOT NULL,
@@ -101,6 +106,7 @@ CREATE TABLE historico_estatus_servicio(
       REFERENCES servicio(servicio_id)  
 )TABLESPACE cliente_servicio_ts;
 
+Prompt creando tabla califica_servicio
 CREATE TABLE califica_servicio(
     califica_servicio_id    NUMBER(10, 0)    NOT NULL,
     comentario              VARCHAR2(200)    NOT NULL,
@@ -111,7 +117,7 @@ CREATE TABLE califica_servicio(
       REFERENCES servicio(servicio_id)
 )TABLESPACE cliente_servicio_ts;
 
-
+Prompt creando tabla evidencia
 CREATE TABLE evidencia(
     evidencia_id         NUMBER(10, 0)    NOT NULL,
     descripcion          VARCHAR2(200)    NOT NULL,
@@ -122,6 +128,7 @@ CREATE TABLE evidencia(
       REFERENCES servicio(servicio_id)
 )TABLESPACE cliente_servicio_ts;
 
+Prompt creando tabla imagen_evidencia
 CREATE TABLE imagen_evidencia(
     secuencia_imagen_evidencia    NUMBER(2, 0)     NOT NULL,
     evidencia_id                  NUMBER(10, 0)    NOT NULL,
@@ -134,6 +141,7 @@ CREATE TABLE imagen_evidencia(
 )TABLESPACE cliente_servicio_ts
 LOB (imagen) STORE AS SECUREFILE (TABLESPACE images_client_service_lob_ts);
 
+Prompt creando tabla pago_servicio
 CREATE TABLE pago_servicio(
     num_pago       NUMBER(2, 0)     NOT NULL,
     servicio_id    NUMBER(10, 0)    NOT NULL,
@@ -146,22 +154,22 @@ CREATE TABLE pago_servicio(
 )TABLESPACE cliente_servicio_ts;
 
 --Indices
-
+Prompt creando Indices
 -- Índice para la clave foránea en la tabla empresa
 -- Índice para la clave foránea en la tabla cliente
-CREATE INDEX cliente_cliente_id_ix ON cliente(cliente_id)TABLESPACE indices_ts ;
+--CREATE INDEX cliente_cliente_id_ix ON cliente(cliente_id)TABLESPACE indices_ts ;
 
 -- Índice para la clave foránea en la tabla empresa
-CREATE INDEX empresa_cliente_id_ix ON empresa(cliente_id)TABLESPACE indices_ts;
+--CREATE INDEX empresa_cliente_id_ix ON empresa(cliente_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla particular
-CREATE INDEX particular_cliente_id_ix ON particular(cliente_id)TABLESPACE indices_ts;
+--CREATE INDEX particular_cliente_id_ix ON particular(cliente_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla tarjeta_cliente
-CREATE INDEX tarjeta_cliente_cliente_id_ix ON tarjeta_cliente(cliente_id)TABLESPACE indices_ts;
+--CREATE INDEX tarjeta_cliente_cliente_id_ix ON tarjeta_cliente(cliente_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla servicio
-CREATE INDEX servicio_cliente_id_ix ON servicio(cliente_id)TABLESPACE indices_ts;
+--CREATE INDEX servicio_cliente_id_ix ON servicio(cliente_id)TABLESPACE indices_ts;
 
 -- Índice para la clave foránea en la tabla servicio
 CREATE INDEX servicio_estatus_servicio_id_ix ON servicio(estatus_servicio_id)TABLESPACE indices_ts;
