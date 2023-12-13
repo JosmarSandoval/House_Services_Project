@@ -14,7 +14,7 @@ fi;
 
 echo \
 "
-db_name='${ORACLE_SID}'
+db_name={ORACLE_SID}'
 db_domain='fi.unam'
 memory_target=1024M
 db_recovery_file_dest_size=5000M

@@ -13,7 +13,7 @@ if [ -f "${ORACLE_HOME}/dbs/orapw${ORACLE_SID}" ]; then
 fi;
 
 orapwd FORCE=Y \
-  FILE='${ORACLE_HOME}/dbs/orapw${ORACLE_SID}' \
+  FILE={ORACLE_HOME}/dbs/orapw${ORACLE_SID}' \
   FORMAT=12.2 \
   SYS=password
 
