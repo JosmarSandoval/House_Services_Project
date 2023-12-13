@@ -6,6 +6,8 @@ whenever sqlerror exit rollback;
 Prompt conectando como proveedor_usr
 connect proveedor_usr/proveedor123
 
+alter session set nls_date_format = 'dd/mm/yyyy';
+
 Prompt Haciendo la carga posterior del modulo 1
 @s-xx-carga-catalogos-modulo1.sql
 @s-xx-carga-posterior-proveedor.sql 
@@ -15,3 +17,5 @@ Prompt Haciendo la carga posterior del modulo 1
 @s-xx-carga-posterior-proveedor-servicio.sql 
 @s-xx-carga-posterior-comprobante-experiencia.sql
 @s-xx-carga-posterior-historico-estatus-proveedor.sql 
+
+commit;
