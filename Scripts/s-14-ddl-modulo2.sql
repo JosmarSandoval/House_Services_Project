@@ -82,7 +82,7 @@ CREATE TABLE servicio(
     CONSTRAINT servicio_pk PRIMARY KEY (servicio_id),
     CONSTRAINT servicio_cliente_id_fk FOREIGN KEY (cliente_id)
       REFERENCES cliente(cliente_id),
-    CONSTRAINT servicio_estat_serv__id_fk FOREIGN KEY (estatus_servicio_id)
+    CONSTRAINT servicio_estat_serv_id_fk FOREIGN KEY (estatus_servicio_id)
       REFERENCES estatus_servicio(estatus_servicio_id)
 )TABLESPACE cliente_servicio_ts
 LOB (documento_detallado) STORE AS SECUREFILE (TABLESPACE docs_client_service_lob_ts);
@@ -143,7 +143,7 @@ CREATE TABLE pago_servicio(
       REFERENCES servicio(servicio_id)
 )TABLESPACE cliente_servicio_ts;
 
-
+--Cambiar nombre y apuntar a el ts de indices
 --Indices
 
 -- Índice para la clave foránea en la tabla empresa
