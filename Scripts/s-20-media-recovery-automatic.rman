@@ -4,13 +4,13 @@ run{
 # @Descripcion: Simulacion de un media recovery automatico 
 
 # ]rman
-# RMAN> connect target "backup_usr@cesaproy as sysbackup"
-# list failure
-# advise failure
+# RMAN> connect target "backup_usr@rasaproy_dedicated as sysbackup"
+# list failure;
+# advise failure;
 
    # restore and recover datafile
-   restore ( datafile 4 );
-   recover datafile 4;
-   sql 'alter database datafile 4 online';
+   restore ( datafile 5 );
+   recover datafile 5;
+   sql 'alter database datafile 5 online';
 
 }
