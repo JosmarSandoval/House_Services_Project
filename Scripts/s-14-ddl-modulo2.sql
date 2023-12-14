@@ -9,7 +9,7 @@ Prompt creando tabla cliente
 CREATE TABLE cliente(
     cliente_id        NUMBER(10, 0)    NOT NULL,
     fecha_registro    DATE             NOT NULL,
-    nombre_ususario   VARCHAR2(40)     NOT NULL,
+    nombre_usuario   VARCHAR2(40)     NOT NULL,
     contrasenia       VARCHAR2(40)     NOT NULL,
     email             VARCHAR2(40)     NOT NULL,
     telefono          VARCHAR2(10)     NOT NULL,
