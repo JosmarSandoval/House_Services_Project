@@ -3,6 +3,8 @@ run{
 # @Fecha 14/12/2023
 # @Descripcion: Simulacion de un media recovery automatico 
 
+# su -l oracle 
+# mv /unam-bda/proyecto/d01/RASAPROY/proveedor01.dbf /home/oracle/backups/
 # ]rman
 # RMAN> connect target "backup_usr@rasaproy_dedicated as sysbackup"
 # list failure;

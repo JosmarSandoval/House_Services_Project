@@ -5,6 +5,7 @@ run{
 
 # su -l oracle 
 # mv /unam-bda/proyecto/d01/RASAPROY/proveedor01.dbf /home/oracle/backups/
+#desde rman se hace, tiene que estar en modo mount
 
   alter database datafile '/unam-bda/proyecto/d01/RASAPROY/proovedor01.dbf' offline;
 
