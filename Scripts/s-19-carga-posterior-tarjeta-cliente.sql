@@ -4,7 +4,7 @@ insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta,
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (1, 60, '6333943512090834', '336', '31/10/2031', '455297967360815726');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (3, 54, '3555347737380087', '740', '22/03/2029', '807858054705446236');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (3, 86, '3538052010693923', '237', '15/10/2025', '330066619313482459');
-insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (3, 86, '3571639493521924', '280', '13/03/2028', '259259288642735936');
+insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (1, 86, '3571639493521924', '280', '13/03/2028', '259259288642735936');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (1, 88, '4920996308362468', '137', '27/08/2025', '121264025162571830');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (3, 77, '3585282340858399', '008', '25/12/2032', '259648740039865898');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (3, 69, '2016594795228721', '681', '30/05/2032', '673967018660543805');
@@ -18,7 +18,7 @@ insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta,
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (2, 83, '4844637591962155', '627', '29/05/2031', '493880666526512420');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (1, 102, '3565121033926416', '820', '09/12/2034', '345456530409619947');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (3, 133, '5602247697528360', '734', '27/04/2026', '575412263662537102');
-insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (1, 99, '50204981886213073', '958', '12/04/2028', '542093266573719244');
+insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (1, 99, '5020498188621307', '958', '12/04/2028', '542093266573719244');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (1, 66, '5602215504688883', '804', '16/08/2025', '871585063982132215');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (1, 93, '3532744213823226', '495', '13/01/2029', '874390350426952464');
 insert into tarjeta_cliente (secuencia_tarjeta_cliente, cliente_id, num_tarjeta, ccv, fecha_expiracion, clabe) values (1, 125, '3545065218947181', '441', '10/12/2025', '232358428135855918');

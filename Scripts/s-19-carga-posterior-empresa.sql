@@ -18,7 +18,7 @@ insert into empresa (cliente_id, nombre, descripcion, num_empleados) values (82,
 insert into empresa (cliente_id, nombre, descripcion, num_empleados) values (89, 'Johnston-Schimmel', 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.', 1255);
 insert into empresa (cliente_id, nombre, descripcion, num_empleados) values (92, 'Raynor, Stracke and Gleason', 'Nunc rhoncus dui vel sem. Sed sagittis.', 2507);
 insert into empresa (cliente_id, nombre, descripcion, num_empleados) values (76, 'Nitzsche LLC', 'Integer a nibh.', 3768);
-insert into empresa (cliente_id, nombre, descripcion, num_empleados) values (76, 'Mohr, Morissette and McCullough', 'Integer ac neque. Duis bibendum.', 2899);
+insert into empresa (cliente_id, nombre, descripcion, num_empleados) values (79, 'Mohr, Morissette and McCullough', 'Integer ac neque. Duis bibendum.', 2899);
 insert into empresa (cliente_id, nombre, descripcion, num_empleados) values (107, 'Bailey Inc', 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.', 5281);
 insert into empresa (cliente_id, nombre, descripcion, num_empleados) values (109, 'Walker Inc', 'In hac habitasse platea dictumst.', 2213);
 insert into empresa (cliente_id, nombre, descripcion, num_empleados) values (126, 'Gerlach-Luettgen', 'Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.', 4023);
