@@ -14,7 +14,7 @@ insert into califica_servicio (califica_servicio_id, comentario, estrellas, serv
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (14, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', 2, 14);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (15, 'Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.', 1, 15);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (16, 'Morbi ut odio.', 3, 16);
-insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (17, 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.', 5, 17);
+insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (17, 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet.', 5, 17);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (18, 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.', 2, 18);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (19, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.', 0, 19);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (20, 'Vivamus in felis eu sapien cursus vestibulum.', 5, 20);
@@ -28,7 +28,7 @@ insert into califica_servicio (califica_servicio_id, comentario, estrellas, serv
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (28, 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.', 4, 28);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (29, 'Nunc purus. Phasellus in felis.', 4, 29);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (30, 'Pellentesque ultrices mattis odio.', 5, 30);
-insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (31, 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.', 5, 31);
+insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (31, 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.', 5, 31);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (32, 'Duis bibendum. Morbi non quam nec dui luctus rutrum.', 4, 32);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (33, 'Duis mattis egestas metus. Aenean fermentum.', 3, 33);
 insert into califica_servicio (califica_servicio_id, comentario, estrellas, servicio_id) values (34, 'Praesent blandit.', 5, 34);
