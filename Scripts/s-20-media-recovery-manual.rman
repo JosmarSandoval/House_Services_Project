@@ -1,0 +1,17 @@
+run{
+# @Autor Ramirez Andres Daniela, Sandoval Castro Josmar Leonardo
+# @Fecha 14/12/2023
+# @Descripcion: Simulacion de un media recovery manual 
+
+# su -l oracle 
+# mv /unam-bda/proyecto/d01/RASAPROY/proveedor01.dbf /home/oracle/backups/
+
+  alter database datafile '/unam-bda/proyecto/d01/RASAPROY/proveedor01.dbf' offline;
+
+  restore datafile '/unam-bda/proyecto/d01/RASAPROY/proveedor01.dbf';
+  recover datafile '/unam-bda/proyecto/d01/RASAPROY/proveedor01.dbf';
+
+  alter database open;
+  alter database datafile '/unam-bda/proyecto/d01/RASAPROY/proveedor01.dbf' online;
+
+}
