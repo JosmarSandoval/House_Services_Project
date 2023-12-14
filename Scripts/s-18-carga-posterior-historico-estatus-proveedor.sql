@@ -44,7 +44,7 @@ insert into historico_estatus_proveedor (historico_estatus_proveedor_id, fecha, 
 insert into historico_estatus_proveedor (historico_estatus_proveedor_id, fecha, proveedor_id, estatus_proveedor_id) values (94, '12/02/2020', 94, 4);
 insert into historico_estatus_proveedor (historico_estatus_proveedor_id, fecha, proveedor_id, estatus_proveedor_id) values (95, '20/03/2022', 95, 3);
 insert into historico_estatus_proveedor (historico_estatus_proveedor_id, fecha, proveedor_id, estatus_proveedor_id) values (96, '30/01/2020', 96, 1);
-insert into historico_estatus_proveedor (historico_estatus_proveedor_id, fecha, proveedor_id, estatus_proveedor_id) values (97, '01/02/2020', 97, 13);
+insert into historico_estatus_proveedor (historico_estatus_proveedor_id, fecha, proveedor_id, estatus_proveedor_id) values (97, '01/02/2020', 97, 3);
 insert into historico_estatus_proveedor (historico_estatus_proveedor_id, fecha, proveedor_id, estatus_proveedor_id) values (98, '09/04/2023', 98, 2);
 insert into historico_estatus_proveedor (historico_estatus_proveedor_id, fecha, proveedor_id, estatus_proveedor_id) values (99, '20/05/2020', 99, 1);
 insert into historico_estatus_proveedor (historico_estatus_proveedor_id, fecha, proveedor_id, estatus_proveedor_id) values (100, '30/05/2023', 100, 2);

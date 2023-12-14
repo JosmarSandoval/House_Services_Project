@@ -36,7 +36,7 @@ insert into proveedor_email (secuencia_proveedor_email, proveedor_id, email) val
 insert into proveedor_email (secuencia_proveedor_email, proveedor_id, email) values (3, 116, 'blamblotz@chicagotribune.com');
 insert into proveedor_email (secuencia_proveedor_email, proveedor_id, email) values (3, 66, 'acoper10@ycombinator.com');
 insert into proveedor_email (secuencia_proveedor_email, proveedor_id, email) values (1, 56, 'toxteby11@symantec.com');
-insert into proveedor_email (secuencia_proveedor_email, proveedor_id, email) values (1, 54, 'abishop12@naver.com');
+insert into proveedor_email (secuencia_proveedor_email, proveedor_id, email) values (1, 145, 'abishop12@naver.com');
 insert into proveedor_email (secuencia_proveedor_email, proveedor_id, email) values (2, 127, 'aimeson13@phpbb.com');
 insert into proveedor_email (secuencia_proveedor_email, proveedor_id, email) values (3, 111, 'dguildford14@google.com.au');
 insert into proveedor_email (secuencia_proveedor_email, proveedor_id, email) values (2, 114, 'bsauvan15@histats.com');
