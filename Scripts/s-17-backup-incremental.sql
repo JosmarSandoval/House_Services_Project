@@ -7,12 +7,12 @@ connect target "backup_usr@rasaproy_dedicated as sysdbackup"
 
 
 --Backup después de la carga inicial
-backup as backupset incremental level 1 database plus archivelog tag house_services_backup_carga_inicial;
+backup as backupset incremental level 1 database plus archivelog tag hs_backup_carga_inicial;
 
 --Backup después de volver a cargar datos al módulo proveedor
-backup as backupset incremental level 1 database plus archivelog tag house_services_backup_carga_posterior1;
+backup as backupset incremental level 1 database plus archivelog tag hs_backup_carga_posterior1;
 
 --Backupp después de volver a cargar datos al módulo cliente_servicio
-backup as backupset incremental level 1 database plus archivelog tag house_services_backup_carga_posterior2;
+backup as backupset incremental level 1 database plus archivelog tag hs_backup_carga_posterior2;
 
 
